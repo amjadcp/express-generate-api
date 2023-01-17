@@ -1,5 +1,5 @@
 {
-  "name": "express-api",
+  "name": "express-generate-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,18 +7,18 @@
     "start": "node index.js"
   },
   "bin": {
-    "express-api": "./index.js"
+    "express-generate-api": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amjadcp/express-api.git"
+    "url": "git+https://github.com/amjadcp/express-generate-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amjadcp/express-api/issues"
+    "url": "https://github.com/amjadcp/express-generate-api/issues"
   },
-  "homepage": "https://github.com/amjadcp/express-api#readme",
+  "homepage": "https://github.com/amjadcp/express-generate-api#readme",
   "dependencies": {
     "chalk": "4.1.2",
     "fs-extra": "^10.0.0",
