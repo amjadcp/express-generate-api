@@ -1,0 +1,1 @@
+here we store files like HTML (to send as email body) or media files

@@ -1,0 +1,24 @@
+{
+  "name": "basic-folder-structure-node-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "express-fileupload": "^1.4.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^6.0.1",
+    "http-status-codes": "^2.2.0",
+    "joi": "^17.7.0",
+    "xss-clean": "^0.1.1"
+  }
+}
