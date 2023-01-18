@@ -5,18 +5,19 @@ const dotenv = require("dotenv");
 const root_dir = __dirname.split("src")[0];
 dotenv.config({ path: path.join(root_dir, `.env`) });
 const cors = require("cors")
-const db = require(`${__dirname}/src/utils/dbConnection`); // import db connection feature from util folder
+const db = require(`${__dirname}/utils/dbConnection`); // import db connection feature from util folder
 const morgan = require("morgan");
 const rateLimiter = require("express-rate-limit");
 const helmet = require("helmet");
 const xss = require("xss-clean");
 const mongoSanitize = require("express-mongo-sanitize");
-const notFoundMiddleware = require("./middleware/not-found");
+const notFoundMiddleware = require("./middleware/notFound");
 const fileUpload = require("express-fileupload");
+const errorWrapper = require("./middleware/errorWrapper");
 
-const swaggerUI = require("swagger-ui-express")
-const YAML = require('yamljs')
-const swaggerJsDocs = YAML.load(`${__dirname}/documentation/api.yml`)
+// const swaggerUI = require("swagger-ui-express")
+// const YAML = require('yamljs')
+// const swaggerJsDocs = YAML.load(`${__dirname}/documentation/api.yml`)
 
 
 
@@ -56,8 +57,9 @@ app.use(fileUpload({
 }));
 
 // api doc
-app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs))
-app.use('/api/v1', errorWrapper(require('./routes/index')))
+// app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs))
+
+app.use('/api/v1', errorWrapper(require('./routers/index')))
 app.use(notFoundMiddleware);
 app.use(require("./middleware/errorHandler"));
 const port = process.env.PORT || 5000;
