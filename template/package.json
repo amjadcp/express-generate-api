@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
   "repository": {
@@ -17,18 +17,19 @@
   "homepage": "",
   "dependencies": {
     "cors": "^2.8.5",
-        "dotenv": "^16.0.3",
-        "express": "^4.18.2",
-        "express-fileupload": "^1.4.0",
-        "express-mongo-sanitize": "^2.2.0",
-        "express-rate-limit": "^6.7.0",
-        "helmet": "^6.0.1",
-        "http-status-codes": "^2.2.0",
-        "joi": "^17.7.0",
-        "mongoose": "^6.8.4",
-        "morgan": "^1.10.0",
-        "swagger-ui-express": "^4.6.0",
-        "xss-clean": "^0.1.1",
-        "yamljs": "^0.3.0"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "http-status-codes": "^2.2.0",
+    "joi": "^17.7.0",
+    "mongoose": "^6.8.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "swagger-ui-express": "^4.6.0",
+    "xss-clean": "^0.1.1",
+    "yamljs": "^0.3.0"
   }
 }

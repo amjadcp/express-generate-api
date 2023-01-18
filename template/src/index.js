@@ -20,8 +20,7 @@ const errorWrapper = require("./middleware/errorWrapper");
 // const swaggerJsDocs = YAML.load(`${__dirname}/documentation/api.yml`)
 
 
-
-db.connect();
+// db.connect();
 
 const whitelist = ["http://127.0.0.1:3000", "localhost", "http://localhost:3000"];
 
@@ -60,8 +59,9 @@ app.use(fileUpload({
 // app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs))
 
 app.use('/api/v1', errorWrapper(require('./routers/index')))
+
 app.use(notFoundMiddleware);
 app.use(require("./middleware/errorHandler"));
-const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log("Server Running on " + `${port}`));
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log("Server Running on " + `http://127.0.0.1:${port}`));
