@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/index.js --watch",
+    "dev": "node --watch src/index.js",
     "start": "node src/index.js"
   },
   "repository": {

@@ -12,7 +12,6 @@ const helmet = require("helmet");
 const xss = require("xss-clean");
 const mongoSanitize = require("express-mongo-sanitize");
 const notFoundMiddleware = require("./middleware/notFound");
-const errorWrapper = require("./middleware/errorWrapper");
 
 db.connect();
 
@@ -45,7 +44,7 @@ app.use(xss());
 app.use(mongoSanitize());
 app.use(morgan("tiny"));
 
-app.use('/api/v1', errorWrapper(require('./routers/index')))
+app.use('/api/v1', require('./routers/index'))
 app.use(notFoundMiddleware);
 app.use(require("./middleware/errorHandler"));
 const port = process.env.PORT || 5000;

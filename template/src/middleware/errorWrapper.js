@@ -11,13 +11,9 @@ const errorWrapper = (fn) => {
         await fn(req, res, next);
       } catch (err) {
         next(err);
-        // return res.status(500).json({
-        //   success: false,
-        //   message: err.message,
-        //   data: null,
-        // });
+        console.log(err);
       }
     };
   };
   
-  module.exports = errorWrapper;
+  module.exports = {errorWrapper};
