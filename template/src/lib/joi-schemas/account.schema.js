@@ -1,4 +1,4 @@
-const Joi = require("joi");
+import Joi from "joi"
 
 // sample use-case
 const signUpSchema = Joi.object().keys({
@@ -13,6 +13,6 @@ const signUpSchema = Joi.object().keys({
   smsConsent: Joi.boolean().required(),
 });
 
-module.exports = {
+export{
   signUpSchema,
 };

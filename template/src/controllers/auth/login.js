@@ -1,8 +1,13 @@
-const { generateAPIError } = require("../../errors/apiError");
-const {errorWrapper} = require("../../middleware/errorWrapper");
+import { generateAPIError } from "../../errors/apiError.js";
+import {errorWrapper}  from "../../middleware/errorWrapper.js";
 
-module.exports.login = errorWrapper(async(req, res, next)=>{
+
+const login = errorWrapper(async(req, res, next)=>{
     // logic
 
     return next(generateAPIError('some err', 400))
 })
+
+export {
+    login
+}

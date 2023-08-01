@@ -1,6 +1,6 @@
-const multer = require("multer");
+import multer from "multer";
 
-module.exports.handleFile = (req, res, next) => {
+const handleFile = (req, res, next) => {
 	const upload = multer({
 		dest: "./public/data/uploads/",
 		fileFilter: (req, file, cb) => {
@@ -28,3 +28,5 @@ module.exports.handleFile = (req, res, next) => {
 		next();
 	});
 };
+
+export default handleFile

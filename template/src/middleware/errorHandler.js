@@ -1,10 +1,6 @@
-const { APIError } = require("../errors/apiError");
-const { ValidationError } = require("mongoose").Error;
-const { StatusCodes } = require("http-status-codes");
-
-const errorHandlerMiddleware = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
     let customError = {
-      statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
+      statusCode: err.statusCode || 500,
       msg: err.message || "Something went wrong try again later",
       success: false,
     };
@@ -27,7 +23,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
       customError.msg = `No item found with id : ${err.value}`;
       customError.statusCode = 404;
     }
-  
+    console.log(err);
     return res.status(customError.statusCode).json({
       message: customError.msg,
       status: "failure",
@@ -35,4 +31,4 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     });
   };
   
-  module.exports = errorHandlerMiddleware;
+  export default errorHandler;

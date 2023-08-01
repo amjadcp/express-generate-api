@@ -12,4 +12,4 @@ const JoiValidator = (validationSchema) => {
     };
   };
 
-module.exports = JoiValidator;
+export {JoiValidator};

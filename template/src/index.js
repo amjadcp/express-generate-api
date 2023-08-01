@@ -1,21 +1,22 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const path = require("path");
-const dotenv = require("dotenv");
-const root_dir = __dirname.split("src")[0];
+import path from "path";
+import dotenv from "dotenv";
+const root_dir = new URL("..", import.meta.url).pathname;
 dotenv.config({ path: path.join(root_dir, `.env`) });
-const cors = require("cors")
-const db = require(`${__dirname}/utils/dbConnection`); // import db connection feature from util folder
-const morgan = require("morgan");
+import dbConnect from './utils/dbConnection.js'; // import db connection feature from util folder
+import cors from "cors"
+import morgan from "morgan";
 // const rateLimiter = require("express-rate-limit");
-const helmet = require("helmet");
-const xss = require("xss-clean");
-const mongoSanitize = require("express-mongo-sanitize");
-const notFoundMiddleware = require("./middleware/notFound");
+import helmet from "helmet";
+import xss from "xss-clean";
+import notFound from "./middleware/notFound.js";
+import errorHandler from "./middleware/errorHandler.js"
+import indexRouter from "./routers/index.js"
 
-db.connect();
+dbConnect();
 
-const whitelist = ["http://127.0.0.1:3000", "localhost", "http://localhost:3000"];
+const whitelist = process.env.WHITELIST.split(",");
 
 app.set("trust proxy", 1); // trust first proxy
 
@@ -41,12 +42,11 @@ app.use(express.json({
 }));
 app.use(helmet());
 app.use(xss());
-app.use(mongoSanitize());
 app.use(morgan("tiny"));
 
-app.use('/api/v1', require('./routers/index'))
-app.use(notFoundMiddleware);
-app.use(require("./middleware/errorHandler"));
+app.use('/api/v1', indexRouter)
+app.use(notFound);
+app.use(errorHandler);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log("Server Running on " + `${port}`));

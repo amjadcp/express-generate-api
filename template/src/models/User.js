@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
+import mongoose from "mongoose";
+import validator from "validator";
 
 // sample use-case
 const AdminSchema = new mongoose.Schema(
@@ -35,4 +35,6 @@ const AdminSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("user", AdminSchema);
+const Admin = mongoose.model("admin", AdminSchema);
+
+export default Admin;

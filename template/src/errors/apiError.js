@@ -16,4 +16,4 @@ class APIError extends Error {
     return new APIError(msg, statusCode);
   };
   
-  module.exports = { generateAPIError, APIError };
+export { generateAPIError, APIError };

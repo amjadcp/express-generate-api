@@ -10,10 +10,10 @@ const errorWrapper = (fn) => {
       try {
         await fn(req, res, next);
       } catch (err) {
-        next(err);
         console.log(err);
+        next(err);
       }
     };
-  };
+};
   
-  module.exports = {errorWrapper};
+export {errorWrapper};
