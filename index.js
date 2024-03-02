@@ -9,9 +9,10 @@ const { questions } = require('./utils/questions');
 
 inquirer.prompt(questions).then((answers) => {
   const projectName = answers['project-name'];
+  const prefer = answers['prefer'];
   const separateFolder = answers['separate-folder']
 
-  const template = `${__dirname}/template/`;
+  const template = `${__dirname}/template/${prefer}`;
 
   if(separateFolder==='Y'){
     fs.mkdirSync(`${currentDir}/${projectName}`);

@@ -10,6 +10,12 @@ module.exports.questions = [
         },
     },
     {
+        name: 'prefer',
+        type: 'list',
+        message: 'Which would you prefer js or ts ?',
+        choices: ['js', 'ts']
+    },
+    {
         name: 'separate-folder',
         type: 'list',
         message: 'Do you want to create the project in separate folder ?',
