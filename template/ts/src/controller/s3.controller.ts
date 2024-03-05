@@ -3,7 +3,6 @@ import { errorWrapper } from "../middleware/errorWrapper.middleware";
 // import aws from "aws-sdk";
 import { Request, Response } from "express";
 import { httpCodeUtils, responseUtils } from "../utils/response.utils";
-// import { appConfig } from "../config/appConfig";
 
 // const region = appConfig.awsBucketRegion;
 // const accessKeyId = appConfig.awsAccessKey;

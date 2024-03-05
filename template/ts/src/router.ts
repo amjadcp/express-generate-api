@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import { healthCheck } from "./controllers/app.controller";
-import { getS3Urls } from "./controllers/s3.controller";
+import { healthCheck } from "./controller/app.controller";
+import { getS3Urls } from "./controller/s3.controller";
 import { auth } from "./middleware/auth.middleware";
 
 import authRouter from "./app/auth/auth.router";
-import { addFCMToken, deleteFCMToken } from "./controllers/fcm.controller";
+import { addFCMToken, deleteFCMToken } from "./controller/fcm.controller";
 
 const router = Router();
 // general routes

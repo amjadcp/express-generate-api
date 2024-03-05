@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { appConfig } from "../config/appConfig";
+import { appConfig } from "./env.utils";
 
 const connect = async (): Promise<void> => {
   await mongoose

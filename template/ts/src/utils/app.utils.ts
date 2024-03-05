@@ -1,5 +1,4 @@
 import { v4 } from "uuid";
-// import { appConfig } from "../config/appConfig";
 
 export const generateOTP = async (): Promise<number> =>
   Math.floor(Math.random() * 8999) + 1000;

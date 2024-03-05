@@ -1,6 +1,6 @@
 import axios from "axios";
 import { sendMailData } from "../interface/app.interface";
-import { appConfig } from "../config/appConfig";
+import { appConfig } from "./env.utils";
 
 export const sendEmail = async (mailData: sendMailData): Promise<boolean> => {
   try {

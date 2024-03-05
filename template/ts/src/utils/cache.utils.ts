@@ -1,5 +1,5 @@
 import {createClient, RedisClientType} from "redis";
-import { appConfig } from "../config/appConfig";
+import { appConfig } from "./env.utils";
 
 const client : RedisClientType | null = createClient({
     url: appConfig.redisUri,

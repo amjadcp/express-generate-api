@@ -1,13 +1,13 @@
 import express from "express";
-import dbConnect from "./utils/dbConnection";
+import dbConnect from "./utils/dbConnection.utils";
 import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
 import notFound from "./middleware/notFound.middleware";
 import errorHandler from "./middleware/errorHandler.middleware";
 import indexRouter from "./router";
-import { appConfig } from "./config/appConfig";
-import firebaseAdmin from "firebase-admin";
+import { appConfig } from "./utils/env.utils";
+// import firebaseAdmin from "firebase-admin";
 
 
 const app = express();
@@ -49,10 +49,10 @@ app.use("/api/v1", indexRouter);
 app.use(notFound);
 app.use(errorHandler);
 
-const serviceAccount = appConfig.firebaseKey;
-firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert(JSON.parse(serviceAccount)),
-});
+// const serviceAccount = appConfig.firebaseKey;
+// firebaseAdmin.initializeApp({
+//   credential: firebaseAdmin.credential.cert(JSON.parse(serviceAccount)),
+// });
 
 const port = appConfig.port || 5000;
 app.listen(port, () => {

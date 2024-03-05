@@ -5,12 +5,6 @@ const orgModel = new mongoose.Schema({
         type: String,
         required: true,
     },
-    team: [mongoose.Schema.Types.ObjectId],
-    createdBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        unique: true,
-    },
     isActive: {
         type: Boolean,
         default: false,

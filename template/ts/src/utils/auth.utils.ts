@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { appConfig } from "../config/appConfig";
+import { appConfig } from "./env.utils";
 
 export const generateToken = async (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

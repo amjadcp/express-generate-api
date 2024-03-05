@@ -4,8 +4,7 @@ import { errorWrapper } from "../middleware/errorWrapper.middleware";
 import { Response } from "express";
 import { httpCodeUtils, responseUtils } from "../utils/response.utils";
 import { RequestWithUser } from "../interface/app.interface";
-import { updateUser } from "../db/services/user/user.service";
-// import { appConfig } from "../config/appConfig";
+import { updateUser } from "../service/user/user.service";
 
 const addFCMToken = errorWrapper(async (req: RequestWithUser, res: Response) => {
   await updateUser({ _id: req.user._id }, { $push: {fcmTokens: req.body.token} }, {});

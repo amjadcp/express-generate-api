@@ -1,9 +1,10 @@
 import { Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { appConfig } from "../config/appConfig";
+import { appConfig } from "../utils/env.utils";
 import { RequestWithUser } from "../interface/app.interface";
 import { responseUtils } from "../utils/response.utils";
-import { ReadUser, readUser } from "../db/services/user/user.service";
+import { ReadUser } from "../service/user/user.type";
+import { readUsers } from "../service/user/user.service";
 import { caching } from "../utils/cache.utils";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,7 +20,7 @@ export const auth = (isAdmin?: boolean): any => {
 
         if (decoded) {
           const _id: string = (decoded as { _id: string })._id;
-          const user: ReadUser | null = await caching(`user/${_id}`, () => readUser({
+          const user: ReadUser | null = await caching(`user/${_id}`, () => readUsers({
             _id, isDeleted: false,
           }, {
             projection: {
@@ -51,7 +52,6 @@ export const auth = (isAdmin?: boolean): any => {
             email: user.docs[0].email,
             isAdmin: user.docs[0].isAdmin,
             org: user.docs[0].org?.toString() || "",
-            isSynced: user.docs[0].isSynced,
           };
           next();
         } else {

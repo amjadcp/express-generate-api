@@ -17,9 +17,6 @@ const userModel = new mongoose.Schema({
         type: String,
         required:true,
     },
-    googleRefreshToken: {
-        type: String,
-    },
     fcmTokens: [String],
     isAdmin: {
         type: Boolean,
@@ -30,10 +27,6 @@ const userModel = new mongoose.Schema({
         default: false,
     },
     isBlocked: {
-        type: Boolean,
-        default: false,
-    },
-    isSynced: { // is synced with google calendar or not
         type: Boolean,
         default: false,
     },

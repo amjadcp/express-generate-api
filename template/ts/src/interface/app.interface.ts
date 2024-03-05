@@ -6,7 +6,6 @@ export interface RequestWithUser extends Request {
     email: string;
     isAdmin: boolean;
     org: string;
-    isSynced: boolean;
   };
 }
 

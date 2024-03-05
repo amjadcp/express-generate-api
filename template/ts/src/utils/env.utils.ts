@@ -19,3 +19,5 @@ export const appConfig = {
   firebaseKey: process.env.FIREBASE_KEY ?? "",
   marketingTeam: process.env.MARKETING_TEAM ?? "",
 };
+
+export const isProduction = (): boolean => appConfig.nodeEnv === "production";
