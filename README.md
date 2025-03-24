@@ -1,7 +1,3 @@
-Below is an improved version of your README.md that provides clearer instructions, better structure, and more context about the tool and its templates:
-
----
-
 # express-generate-api
 
 **A CLI tool to quickly generate a boilerplate for your Express API project**
